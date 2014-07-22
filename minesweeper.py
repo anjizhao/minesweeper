@@ -31,7 +31,7 @@ def main():
         if turn == 'win':
             print 'congrats, you\'ve successfully swept all the mines :D'
         again = raw_input('play again? (y/n) ')
-        if again == 'n':
+        if again == 'n' or again = 'N':
             if turn == 'n':
                 print 'remember, quitters never win! keep practicing.'
             else:
