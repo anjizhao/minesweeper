@@ -1,5 +1,5 @@
 
-from models import Board, Game
+from models import Game
 
 
 def play():
