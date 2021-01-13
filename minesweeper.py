@@ -57,17 +57,17 @@ def userturn(mines, solutionboard, userboard, m, turncount):
         print('enter two uppercase letters!')
         guess_str = input(input_text)
     letters = string.ascii_uppercase
-    column = letters.index(guess_str[0])
-    row = letters.index(guess_str[1])
+    row = letters.index(guess_str[0])
+    column = letters.index(guess_str[1])
     spacesleft = checksolution(userboard)
     print(spacesleft, ' spaces left')
-    if solutionboard[column, row] != 9:
-        s = str(solutionboard[column, row])
-        userboard[column, row] = s
+    if solutionboard[row, column] != 9:
+        s = str(solutionboard[row, column])
+        userboard[row, column] = s
         turn = 'y'
     if spacesleft == m:
         turn = 'win'
-    if solutionboard[column, row] == 9:
+    if solutionboard[row, column] == 9:
         for i in range(len(userboard)):
             for j in range(len(userboard)):
                 if solutionboard[i, j] == 9:
