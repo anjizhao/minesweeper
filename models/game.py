@@ -8,8 +8,6 @@ class Game():
 
     def __init__(self):
         self.board = None
-        self.solutionboard = None
-        self.userboard = None
 
     def _create_board(self):
         n_input = ''
@@ -36,15 +34,19 @@ class Game():
         self.board = Board(n, m)
 
     def start(self):
-        self._create_board()  # generates empty board (no mines)
-        # print(self.board.mines)
+        # self._create_board()  # generates empty board (no mines)
+
+        self.board = Board(10, 5)  # temp for testing
+
         # the user should never hit a mine on the first move.
         # place mines _after_ their first guess
         user_move = self.get_user_move()
         self.board.place_mines(user_move)
-        # print(self.board.mines)
         # after the mines are placed, actually play the user's move
         self.do_user_move(user_move)
+        print(self.board.solution)
+        self.board.print_solution()
+        self.board.print_user_board()
 
     @classmethod
     def _valid_move_input(cls, input_str: str):
@@ -65,6 +67,7 @@ class Game():
         return (row, column)
 
     def do_user_move(self, move: Tuple[int, int]):
+        self.board.user_move(move)
         return
 
     def play(self):
